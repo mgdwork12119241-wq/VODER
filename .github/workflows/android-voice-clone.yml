@@ -51,19 +51,19 @@ jobs:
           cp android/app/build/outputs/apk/debug/app-debug.apk dist/VODER-VoiceClone-arm64-debug-v0.1.0.apk
           sha256sum dist/VODER-VoiceClone-arm64-debug-v0.1.0.apk > dist/SHA256SUMS.txt
           cat > dist/README.txt <<'EOF'
-VODER Voice Clone - Android TEST build
+          VODER Voice Clone - Android TEST build
 
-APK: VODER-VoiceClone-arm64-debug-v0.1.0.apk
-ABI: arm64-v8a
-Minimum Android: 12 / API 31
-Signing: Android debug/test certificate (not a production release key)
+          APK: VODER-VoiceClone-arm64-debug-v0.1.0.apk
+          ABI: arm64-v8a
+          Minimum Android: 12 / API 31
+          Signing: Android debug/test certificate (not a production release key)
 
-The app downloads the Qwen3-TTS GGUF model after installation and stores it
-in app-private storage. Inference is intended to run locally on the phone.
+          The app downloads the Qwen3-TTS GGUF model after installation and stores it
+          in app-private storage. Inference is intended to run locally on the phone.
 
-Install the APK, open it, download the model, select a WAV reference voice,
-enter text, and generate the cloned voice locally.
-EOF
+          Install the APK, open it, download the model, select a WAV reference voice,
+          enter text, and generate the cloned voice locally.
+          EOF
           (cd dist && zip -9 ../VODER-VoiceClone-arm64-debug-v0.1.0.zip VODER-VoiceClone-arm64-debug-v0.1.0.apk SHA256SUMS.txt README.txt)
 
       - name: Upload APK
@@ -77,5 +77,5 @@ EOF
         uses: actions/upload-artifact@v4
         with:
           name: voder-voice-clone-debug-zip
-          path: VODER-VoiceClone-arm64-debug-v0.1.0.zip
+          path: dist/VODER-VoiceClone-arm64-debug-v0.1.0.zip
           if-no-files-found: error
