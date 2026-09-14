@@ -6,6 +6,7 @@ plugins {
 android {
     namespace = "com.mgdwork.voder.voiceclone"
     compileSdk = 35
+    ndkVersion = "27.2.12479018"
 
     defaultConfig {
         applicationId = "com.mgdwork.voder.voiceclone"
