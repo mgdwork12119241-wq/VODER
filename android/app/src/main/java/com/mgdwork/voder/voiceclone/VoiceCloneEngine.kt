@@ -11,7 +11,9 @@ object VoiceCloneEngine {
 
     fun modelsReady(context: Context): Boolean {
         val dir = ModelDownloader.modelDir(context)
-        return File(dir, ModelDownloader.talkerQ8.name).length() >= ModelDownloader.talkerQ8.expectedBytes * 0.95 &&
-            File(dir, ModelDownloader.tokenizer.name).length() >= ModelDownloader.tokenizer.expectedBytes * 0.95
+        val talker = File(dir, ModelDownloader.talkerQ8.name)
+        val tokenizer = File(dir, ModelDownloader.tokenizerQ8.name)
+        return talker.length() == ModelDownloader.talkerQ8.expectedBytes &&
+            tokenizer.length() == ModelDownloader.tokenizerQ8.expectedBytes
     }
 }
